@@ -1,2 +1,2 @@
-awswrangler[postgres]
-psycopg2-binary
+awswrangler[postgres]== 3.10.0
+psycopg2-binary == 2.9.6
