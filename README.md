@@ -23,16 +23,22 @@ This project demonstrates a production-grade data pipeline built using **Airflow
 
 ```bash
 ecommerce-data-pipeline/
-│
-├── dags/
-│ └── api_to_rds_dag.py # Airflow DAG definition
-│ └── api_to_rds.py # ETL functions (API, S3, RDS)
-│
-├── Dockerfile # Airflow environment setup
-├── docker-compose.yaml # Airflow + dependencies
-├── requirements.txt # Python dependencies
-├── .gitignore
-└── README.md # Project documentation
+    airflow
+    ├── dags/
+    │ └── api_to_rds_dag.py # Airflow DAG definition
+    │ └── api_to_rds.py # ETL functions (API, S3, RDS)
+    │
+    ├── Dockerfile # Airflow environment setup
+    ├── docker-compose.yaml # Airflow + dependencies
+    ├── requirements.txt # Python dependencies
+    infrastructure/
+    │   ├── terraform/                    # Terraform configuration
+    │       ├── redshift.tf              # Redshift cluster setup
+    │       ├── s3.tf                    # S3 bucket provisioning
+    │       ├── providers.tf             # AWS provider
+    │       ├── backend.tf               # Backend config
+    ├── .gitignore
+    └── README.md # Project documentation
 ```
 
 ## Step-by-Step Pipeline Description

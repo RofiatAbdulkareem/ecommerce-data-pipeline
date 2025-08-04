@@ -1,0 +1,2 @@
+awswrangler[postgres]
+psycopg2-binary
