@@ -1,0 +1,4 @@
+infrastructure/*terraform*
+airflow/*
+!airflow/dags
+!airflow/*ocker*
