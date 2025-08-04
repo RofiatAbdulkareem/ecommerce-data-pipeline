@@ -1,10 +1,11 @@
-# ecommerce-data-pipeline  # API → S3 → RDS → Redshift
+
+# ecommerce-data-pipeline
 
 This project demonstrates a production-grade data pipeline built using **Airflow** and **Airbyte** to extract e-commerce product data from a public API, store it in **Amazon S3**, load it into **PostgreSQL RDS**, and finally sync the data into **Amazon Redshift**.
 
 ---
 
-## 📌 Architecture Overview
+## Architecture Overview
 
 # API ➜ Airflow ➜ S3 (Parquet) ➜ RDS (PostgreSQL) ➜ Airbyte ➜ Redshift
 
@@ -18,8 +19,9 @@ This project demonstrates a production-grade data pipeline built using **Airflow
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
+```bash
 ecommerce-data-pipeline/
 │
 ├── dags/
@@ -31,10 +33,9 @@ ecommerce-data-pipeline/
 ├── requirements.txt # Python dependencies
 ├── .gitignore
 └── README.md # Project documentation
+```
 
----
-
-## 🧪 Step-by-Step Pipeline Description
+## Step-by-Step Pipeline Description
 
 ### 1. **API to S3**
 - Airflow fetches product data from a public e-commerce API.
@@ -53,7 +54,7 @@ ecommerce-data-pipeline/
 
 ---
 
-## 🚀 How to Run the Project
+## How to Run the Project
 
 ### 1. **Clone the Repo**
 ```bash
@@ -89,3 +90,4 @@ Trigger the DAG: ecommerce_data_pipeline
 - Run manual sync to transfer data.
 
 ![Airflow DAG Running](screenshots/airflow_dag.png)
+![Airbyte Setup](screenshots/airbyte_setup.png)
