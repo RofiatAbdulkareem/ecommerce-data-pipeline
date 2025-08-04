@@ -8,13 +8,12 @@ This project demonstrates a production-grade data pipeline built using **Airflow
 ## Architecture Overview
 
 # API ➜ Airflow ➜ S3 (Parquet) ➜ RDS (PostgreSQL) ➜ Airbyte ➜ Redshift
-
 **Tools Used:**
 - **Apache Airflow** (Dockerized)
 - **AWS S3** – Data Lake storage
-- **PostgreSQL RDS** – Intermediate structured storage
+- **PostgreSQL RDS** 
 - **Amazon Redshift** – Data warehouse
-- **Airbyte** (Minikube) – ELT sync from RDS to Redshift
+- **Airbyte** (Minikube) –from RDS to Redshift
 - **Python + pandas + awswrangler** – For ETL logic
 
 ---
@@ -25,20 +24,20 @@ This project demonstrates a production-grade data pipeline built using **Airflow
 ecommerce-data-pipeline/
     airflow
     ├── dags/
-    │ └── api_to_rds_dag.py # Airflow DAG definition
-    │ └── api_to_rds.py # ETL functions (API, S3, RDS)
+    │ └── api_to_rds_dag.py
+    │ └── api_to_rds.py 
     │
-    ├── Dockerfile # Airflow environment setup
-    ├── docker-compose.yaml # Airflow + dependencies
-    ├── requirements.txt # Python dependencies
+    ├── Dockerfile
+    ├── docker-compose.yaml 
+    ├── requirements.txt 
     infrastructure/
-    │   ├── terraform/                    # Terraform configuration
-    │       ├── redshift.tf              # Redshift cluster setup
-    │       ├── s3.tf                    # S3 bucket provisioning
-    │       ├── providers.tf             # AWS provider
-    │       ├── backend.tf               # Backend config
+    │   ├── terraform/                 
+    │       ├── redshift.tf           
+    │       ├── s3.tf                 
+    │       ├── providers.tf         
+    │       ├── backend.tf           
     ├── .gitignore
-    └── README.md # Project documentation
+    └── README.md
 ```
 
 ## Step-by-Step Pipeline Description
@@ -56,7 +55,7 @@ ecommerce-data-pipeline/
 - Airbyte is configured on **Minikube**.
 - A source connector is set up for RDS PostgreSQL.
 - A destination connector is set up for Amazon Redshift.
-- Airbyte syncs data automatically or on demand.
+- Airbyte syncs data automatically every 24hrs
 
 ---
 
@@ -70,7 +69,7 @@ cd ecommerce-data-pipeline
 
 ### 2. Set Up Airflow (Docker)
 ```bash
-docker-compose up airflow-init
+docker build -t imagename .
 docker-compose up
 ```
 
@@ -85,9 +84,8 @@ Go to Airflow UI (http://localhost:8080)
 Trigger the DAG: ecommerce_data_pipeline
 
 ## Airbyte Setup (Minikube)
-- Start Minikube and expose port
-- minikube start
-- minikube service airbyte-webapp-service --url
+- Start Minikube
+- Expose port
 - Open the Airbyte UI
 ### Create:
 - Source: PostgreSQL (RDS)
